@@ -1,0 +1,1522 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(rgba(12, 3, 51, 0.3), rgba(12, 3, 51, 0.3));
+  min-height: 100vh;
+}
+
+header {
+  margin-top: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+  z-index: 5;
+}
+
+.logo {
+  width: 180px; 
+  height: auto; 
+  display: block;
+}
+
+
+.nav-item {
+  position: relative;
+  color: black;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 25px;
+  letter-spacing: -0.13px;
+  text-decoration: none;
+  margin-left: 2.5rem;
+  transition: all 0.5s ease;
+}
+
+.nav-item:hover {
+  color: #b88510;
+}
+
+.nav-item::after {
+  content: "";
+  position: absolute;
+  bottom: -0.3rem;
+  left: 50%;
+  width: 0;
+  height: 0.15rem;
+  transform: translateX(-50%);
+  background-color: #b88510;
+  transition: all 0.5s ease;
+}
+
+.nav-item:hover::after {
+  width: 100%;
+}
+
+.icons {
+  position: absolute;
+  right: 5%;
+  font-size: 2.3rem;
+  color: #fff;
+  cursor: pointer;
+  display: none;
+}
+
+#check {
+  display: none;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.content h1 {
+  font-size: 5rem;
+  font-weight: 550;
+  -webkit-text-stroke: 2px rgb(14, 52, 60);
+  color: transparent;
+  transition: all 0.5s ease;
+}
+
+.btn {
+  width: 180px;
+  height: 50px;
+  border-radius: 5px;
+  background: transparent;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: all 0.3s ease-in;
+}
+
+.btn:hover {
+  transform: translateY(-5px);
+}
+
+.light::before {
+  content: "";
+  position: absolute;
+  background-image: conic-gradient(
+    #b88510 20deg,
+    transparent 800deg
+  );
+  width: 400%;
+  height: 400%;
+  border-radius: 5px;
+  animation: rotate 3s linear infinite;
+}
+
+.light::after {
+  content: "explore";
+  position: absolute;
+  width: 170px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(35px);
+  -webkit-backdrop-filter: blur(35px);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  border-radius: 5px;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.background-video {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+@media (min-aspect-ratio: 16/9) {
+  .background-video {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-aspect-ratio: 4/3) {
+  .background-video {
+    width: auto;
+    height: 100%;
+  }
+}
+
+@media (max-width: 900px) {
+  header {
+    padding: 1.3rem 5%;
+  }
+
+  .content h1 {
+    font-size: 7rem;
+  }
+}
+
+@media (max-width: 700px) {
+  header::before {
+    content: "";
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(50px);
+    z-index: -1;
+  }
+
+  header::after {
+    content: "";
+    top: 0;
+    left: -100%;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent
+    );
+    transition: 0.8s;
+  }
+
+  .icons {
+    display: inline-flex;
+  }
+
+  #check:checked ~ .icons #menu-icon {
+    display: none;
+  }
+
+  .icons #close-icon {
+    display: none;
+  }
+
+  #check:checked ~ .icons #close-icon {
+    display: block;
+  }
+
+  .navbar {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(50px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  #check:checked ~ .navbar {
+    height: 17.7rem;
+  }
+
+  .nav-item {
+    display: block;
+    font-size: 1.1rem;
+    margin: 2rem 0;
+    text-align: center;
+    transform: translateY(-50px);
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+
+  .nav-item:hover::after {
+    width: auto;
+  }
+
+  #check:checked ~ .navbar a {
+    transform: translateY(0);
+    opacity: 1;
+    transition-delay: calc(0.15s * var(--i));
+  }
+}
+
+@media (max-width: 620px) {
+  .content h1 {
+    font-size: 5rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .content h1 {
+    font-size: 3rem;
+  }
+  
+  .btn {
+    width: 130px;
+  }
+  
+  .light::after {
+    width: 120px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .background-video {
+    position: fixed;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+}
+
+.about-us {
+  text-align: center;
+  padding: 50px 30px;
+  background-color: white;
+}
+
+.about-us h2 {
+  margin-bottom: 20px;
+  font-size: 2em;
+}
+
+.about-us p {
+  max-width: 900px; 
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #666;
+  font-size: 1em; 
+  line-height: 1.6; 
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px; 
+}
+
+.stat {
+  text-align: center;
+  flex-basis: 20%; 
+}
+
+.icon {
+  height: 50px; 
+  width: 50px; 
+  margin-bottom: 10px;
+}
+
+.stat h3 {
+  font-size: 1.5em;
+  margin-bottom: 5px;
+}
+
+.stat p {
+  color: #666;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .stats {
+      flex-direction: column;
+  }
+
+  .stat {
+      margin-bottom: 20px;
+  }
+}
+
+.upcoming-events {
+  text-align: center;
+  padding: 40px 0; 
+  background-color: #f8f8f8; 
+  color: #333; 
+}
+
+.upcoming-events .container {
+  width: 100%;
+  max-width: 600px; 
+  margin: 0 auto; 
+}
+
+.upcoming-events h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.upcoming-events p {
+  margin-bottom: 20px;
+}
+
+.discover-button {
+  text-decoration: none;
+  color: #007bff; 
+  background-color: transparent;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.discover-button:hover {
+  color: #0056b3; 
+}
+
+.members-benefits {
+  background-color: #144458; 
+  color: #fff; 
+  padding: 50px 0; 
+  text-align: center; 
+}
+
+.members-benefits .container {
+  max-width: 1200px; 
+  margin: 0 auto; 
+  padding: 0 15px; 
+}
+
+.members-benefits h2 {
+  margin-bottom: 20px; 
+}
+
+.members-benefits .intro {
+  margin-bottom: 40px; 
+}
+
+.benefits-grid {
+  display: flex;
+  justify-content: space-around; 
+  flex-wrap: wrap; 
+}
+
+.benefit-item {
+  width: 30%; 
+  margin-bottom: 30px; /* Space below each item */
+  padding: 20px; /* Padding inside the items */
+  background-color: #ffffff; /* White background for the benefit items */
+  color: #333; /* Dark text for readability */
+  border-radius: 10px; /* Rounded corners for the benefit items */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: transform 0.3s ease; /* Smooth transform on hover */
+}
+
+.benefit-item:hover {
+  transform: translateY(-5px); /* Lift items on hover */
+}
+
+.benefit-item .icon {
+  font-size: 50px; /* Icon size, adjust as necessary */
+  margin-bottom: 20px; /* Space below the icon */
+}
+
+@media (max-width: 768px) {
+  .benefits-grid {
+      flex-direction: column;
+  }
+  .benefit-item {
+      width: auto; /* Full width on small screens */
+  }
+}
+
+.our-team {
+  text-align: center;
+  padding: 40px 0; /* Adjust padding as needed */
+  background-color: #f4f4f4; /* Adjust background color as needed */
+}
+
+.our-team .container {
+  max-width: 1200px; /* Adjust as needed */
+  margin: 0 auto; /* Center the container */
+}
+
+.our-team h2 {
+  margin-bottom: 30px; /* Adjust as needed */
+}
+
+.team-members {
+  display: flex;
+  justify-content: space-around; /* Evenly space the team members */
+  flex-wrap: wrap; /* Wrap on smaller screens */
+}
+
+.member {
+  flex-basis: 30%; /* Adjust width as needed */
+  margin-bottom: 50px; /* Space below each member */
+}
+
+.team-photo {
+  width: 100px; /* Adjust as needed */
+  height: 100px; /* Adjust as needed */
+  border-radius: 50%; /* Circular photos */
+  object-fit: cover;
+  margin-bottom: 10px; /* Space below the photo */
+  background-color: #eee; /* Placeholder color, remove when adding actual images */
+  border: 3px solid #fff; /* Adjust or remove as needed */
+  box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Optional shadow for depth */
+}
+
+.member h3 {
+  margin-bottom: 5px; /* Adjust as needed */
+  font-size: 1.1em; /* Adjust as needed */
+}
+
+.member p {
+  font-size: 0.9em; /* Adjust as needed */
+  color: #666; /* Adjust as needed */
+}
+
+@media (max-width: 768px) {
+  .team-members {
+      flex-direction: column;
+  }
+
+  .member {
+      flex-basis: auto; /* Full width on small screens */
+  }
+}
+
+.join-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px; /* Adjust padding as needed */
+  background-color: #fff; /* Adjust background color as needed */
+}
+
+.text-content {
+  flex: 1;
+  padding-right: 20px; /* Adjust spacing as needed */
+}
+
+.image-content {
+  flex: 1;
+}
+
+.image-content img {
+  width: 100%;
+  height: auto;
+  display: block; /* Remove if you want the image inline */
+}
+
+.join-button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 20px;
+  background-color: #000000; /* Adjust to match your site's theme */
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.join-button:hover {
+  background-color: #b98b16; /* Darker shade for hover effect */
+}
+
+@media (max-width: 768px) {
+  .join-section {
+      flex-direction: column;
+  }
+  .text-content,
+  .image-content {
+      flex: none;
+      width: 100%;
+      padding: 0;
+  }
+  .image-content {
+      order: -1; /* Image above text on small screens */
+  }
+}
+
+.map-section {
+  text-align: center;
+  padding: 40px 0; /* Adjust the padding as needed */
+  background-color:cadetblue
+}
+
+.map-container {
+  width: 100%;
+  height: 400px; /* Adjust the height as needed */
+  position: relative; /* For iframe positioning */
+  margin-top: 30px;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  border: none; /* Removes the default iframe border */
+}
+
+.site-footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.footer-content {
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.site-footer a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.site-footer a:hover {
+  color: #aaa;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  display: inline;
+  margin: 0 10px;
+}
+
+@media (max-width: 768px) {
+  .footer-links li {
+      display: block;
+      margin: 5px 0;
+  }
+}
+
+#events {
+  font-size: 6rem;
+  font-weight: 600;
+  -webkit-text-stroke: 2px rgb(250, 250, 250);
+  color: transparent;
+  transition: all 0.5s ease;
+}
+
+/* Contact Us Page*/
+#contact-title {
+  font-size: 4rem;
+  font-weight: 600;
+  -webkit-text-stroke: 2px rgb(0, 0, 0);
+  color: transparent;
+  transition: all 0.5s ease;
+}
+
+.contact-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 2rem;
+  background-color: #f2f2f2; /* Choose a background color that fits your design */
+}
+
+.contact-info {
+  width: 40%;
+}
+
+
+.map-container {
+  color: black;
+  width: 100%;
+}
+
+.contact-info h2 {
+  margin-bottom: 1rem;
+}
+
+.social-links {
+  display: flex;
+  margin-top: 1rem;
+}
+
+.social-link {
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  color: #333; /* Use a color that matches your site's theme */
+}
+
+.social-link:hover {
+  color: #007bff; /* Change hover color as needed */
+}
+
+.contact-form-container {
+  width: 50%;
+  margin-left: 20px;
+}
+
+.contact-form {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.btn {
+  background-color: #0056b3; /* Adjust the button color to fit your theme */
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #003d82; /* Darker shade for the hover state */
+}
+
+@media (max-width: 600px) {
+  .contact-info,
+  .contact-form-container {
+    width: 100%; /* Both elements take the full width on smaller screens */
+  }
+
+  .social-links {
+    margin-top: 1rem;
+  }
+
+  .social-link {
+    font-size: 1.5rem; /* Keep font size the same or adjust as needed for smaller screens */
+    margin: 0.5rem; /* Give some space around the icons */
+  }
+
+  .contact-form {
+    padding: 1rem; /* Reduce padding for the form on smaller screens */
+  }
+
+  .form-group {
+    margin-bottom: 1rem; /* Adjust spacing between form elements as needed */
+  }
+
+  /* Adjust the form input elements to have a bit less padding to fit better on small screens */
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group textarea {
+    padding: 10px; /* Reduced padding */
+  }
+
+}
+
+/* Events Page*/
+.past-events {
+  background-color: #f5f5f5;
+  color: #030303;
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+
+.past-events h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  background-color: #211e1e;
+  color: white;
+  padding: 5px;
+}
+
+.event {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.event-info {
+  flex-basis: 50%;
+  padding: 25px;
+}
+
+.event-info p{
+  margin: 20px 0;
+}
+
+.event-date {
+  background-color: #b88510;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.event-images {
+  flex-basis: 50%;
+  overflow-x: auto; /* Allows horizontal scrolling */
+  white-space: nowrap; /* Ensures images are in a single line */
+  padding: 10px 0; /* Optional: adds some padding above and below the images */
+  margin-right: 20px;
+}
+
+.event-images img {
+  width: auto; /* Allows image to maintain its intrinsic width */
+  max-width: 70%; /* Ensures image is not wider than its container */
+  height: auto; /* Maintains aspect ratio */
+  display: inline-block; /* Places images in a line */
+  margin-right: 10px; /* Optional: adds space between the images */
+  border-radius: 15px;
+}
+
+@media (max-width: 768px) {
+  .event {
+    flex-direction: column;
+  }
+
+  .event-info, .event-images {
+    flex-basis: 100%;
+    margin: 0 auto;
+  }
+
+  .event-images img {
+    display: block; /* Stacks images vertically on small screens */
+    max-width: 90%; /* Allows images to take their natural width */
+    margin: 10px auto; /* Centers images and removes horizontal margin */
+  }
+
+  .event-date {
+    display: block;
+    margin-top: 20px;
+  }
+}
+
+.event-video {
+  text-align: center; /* Center the video and text */
+  margin: 20px 0; /* Give some space around the video section */
+  background-image: url(images/video_background2.jpeg);
+  background-position: center;
+  background-size: cover;
+}
+
+.event-video h3 {
+  margin-bottom: 10px; /* Space between the text and the video */
+  padding-top: 10px;
+}
+
+.event-video video {
+  width: 80%; /* Full width on mobile, you can adjust this as needed */
+  max-width: 50%; /* Maximum width of the video */
+  height: 600px; /* Maintain aspect ratio */
+  margin: 0 auto; /* Center the video if it's not full width */
+}
+
+@media (max-width: 768px) {
+  .event-video video {
+    width: 100%;
+    max-width: 90%;
+    background-image: none;
+  }
+
+  .event-video {
+    background-image: url(images/video_background2.jpeg);
+    background-position: bottom;
+    background-size: auto;
+  }
+}
+
+.guest-speaker {
+  background-color: #f5f5f5; /* or any color to match the design */
+  padding: 0 auto;
+}
+
+.speaker-profile {
+  display: flex;
+  flex-direction: column; /* Stack the image and text on mobile */
+  align-items: center; /* Center-align the content on mobile */
+  text-align: center; /* Center-align the text on mobile */
+  padding: 20px; /* Add some padding */
+}
+
+.speaker-image {
+  width: 150px; /* Set a smaller width for mobile */
+  height: 150px; /* Set a smaller height for mobile */
+  border-radius: 50%; /* Make the image round */
+  object-fit: cover; /* Cover the content box */
+  margin-bottom: 20px; 
+}
+
+.speaker-info {
+  flex-grow: 1;
+  background-color: #ffffff; /* for the text background */
+  padding: 20px;
+  border-top: solid 4px #b88510; /* adjust color as needed */
+}
+
+.speaker-info h3 {
+  font-size: 1.5em; /* adjust as needed */
+  margin-bottom: 0.5em;
+}
+
+.speaker-info p {
+  font-size: 1em; /* adjust as needed */
+  color: #666; /* adjust as needed */
+}
+
+
+.speaker-profile .event-images {
+  flex-basis: 50%;
+  overflow-x: auto; /* Allows horizontal scrolling */
+  white-space: nowrap; /* Ensures images are in a single line */
+  padding: 10px 0; /* Optional: adds some padding above and below the images */
+  margin-right: 20px;
+}
+
+.speaker-profile .event-images img {
+  width: auto; /* Allows image to maintain its intrinsic width */
+  max-width: 30%; /* Ensures image is not wider than its container */
+  height: auto; /* Maintains aspect ratio */
+  display: inline-block; /* Places images in a line */
+  margin-right: 10px; /* Optional: adds space between the images */
+  border-radius: 15px;
+}
+
+@media (max-width: 768px) {
+  .speaker-profile .event-images {
+    flex-basis: 100%;
+    margin: 0 auto;
+  }
+
+  .speaker-profile .event-images img {
+    max-width: 100%;
+    display: block;
+    max-width: 90%; 
+    margin: 10px auto;
+  }
+
+
+  .event-images img {
+    display: block; 
+    max-width: 90%; 
+    margin: 10px auto; 
+  }
+}
+
+
+.events-section {
+  text-align: center; 
+  padding: 4rem 0; 
+  background-color: #f9f9f9; 
+  color: #333; 
+}
+
+.events-section h2 {
+  margin-bottom: 2rem; 
+  font-size: 1.5rem; 
+  font-weight: normal; 
+}
+
+.events-discover-button {
+  text-decoration: none; 
+  background-color: #0056b3; 
+  color: white; 
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px; 
+  transition: background-color 0.3s; 
+}
+
+.events-discover-button:hover {
+  background-color: #003d82; 
+}
+
+
+
+/* Explore */
+
+.background-image {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background-image: url('explore3.jpg'); /* Replace 'your-image.jpg' with the path to your JPG image */
+  background-size: cover; /* Cover the entire page */
+  background-position: center; /* Center the background image */
+}
+.welcome {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.welcome h1 {
+  font-size: 3rem;
+  font-weight: 500;
+  -webkit-text-stroke: 2px rgb(0, 0, 0);
+  color: transparent;
+  transition: all 0.5s ease;
+}
+
+.welcome p {
+  margin-top: 50px;
+  font-size: 1em; /* Adjust font size as needed */
+  line-height: 1.6; /* Line height for readability */
+  width: 80%; /* Restrict paragraph width for readability */
+  max-width: 1000px;
+}
+
+/* First section */
+
+.map-uzbekistan {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: #f5f5f5; /* Use a light background color */
+}
+
+.left-side {
+  flex: 1; /* Each side takes up half the width of the container */
+  padding: 10px; /* Add some space around the contents */
+  position: relative; /* For positioning the pseudo-element */
+}
+
+.left-side::after {
+  content: ''; /* Required for a pseudo-element */
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px; /* Width of the vertical line */
+  background-color: #333; /* Color of the vertical line */
+}
+
+.left-side img {
+  width: 100%; /* Make the image responsive */
+  height: auto; /* Maintain aspect ratio */
+  max-width: 600px; /* Maximum width of the image */
+  display: block; /* Prevent inline behaviors */
+}
+
+.right-side {
+  flex: 1; /* Take up the other half */
+  padding-left: 20px; /* Add some space between the line and the text */
+  text-align: left; /* Align the text to the left */
+}
+
+.right-side h2 {
+  font-size: 1.5rem; /* Choose an appropriate font size */
+  color: #333; /* A dark color for the heading */
+  margin-bottom: 0.25em; /* Space below the heading */
+}
+
+.right-side p {
+  font-size: 1rem; /* Choose an appropriate font size for the paragraph */
+  color: #666; /* A lighter color for the paragraph */
+}
+
+@media (max-width: 600px) {
+  .map-uzbekistan {
+    flex-direction: column;
+  }
+
+  .left-side,
+  .right-side {
+    flex: none; /* Reset the flex property */
+    width: 100%; /* Take the full width of the container */
+    padding: 10px 0; /* Adjust padding */
+    text-align: center; /* Center-align text for mobile */
+  }
+
+  .left-side::after {
+    display: none; /* Hide the vertical line on small screens */
+  }
+
+  .left-side img {
+    max-width: 100%; /* Ensure image is not larger than the container */
+  }
+  
+  .right-side {
+    padding: 0; /* Remove padding on the right side */
+  }
+}
+
+
+/* Second section */
+
+.photo-gallery {
+  position: relative;
+  overflow: hidden;
+  background-color: #f5f5f5;
+}
+
+.photo-gallery h2{
+  margin: 10px 30px;
+  border-left: 3px solid rgb(0, 0, 0);
+  padding-left: 10px;
+}
+
+.gallery-container {
+  overflow-x: auto;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+  margin: 20px 30px;
+}
+
+.gallery img {
+  width: 300px; /* or any size you prefer */
+  height: auto; /* or any size you prefer */
+  overflow: hidden;
+  object-fit: cover;
+  margin: 0;
+  transition: opacity 0.4s ease;
+  opacity: 0.5; /* Start with a dimmed image */
+  border-radius: 15px;
+}
+
+.gallery img:hover {
+  opacity: 1; /* Image is fully visible on hover */
+}
+
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #b88510;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.scroll-btn.left {
+  left: 0;
+}
+
+.scroll-btn.right {
+  right: 0;
+}
+
+/* Third section */
+.president-section {
+  text-align: center; 
+  padding: 40px 20px; 
+  background-color: #f5f5f5;
+}
+
+.president-container {
+  position: relative; 
+  display: inline-block; 
+}
+
+.president-image {
+  width: 600px; 
+  height: auto; 
+  border-radius: 50%; 
+  display: block; 
+  margin: 0 auto 20px; 
+}
+
+.horizontal-line {
+  border: 0;
+  height: 1px; 
+  background-image: linear-gradient(to right, transparent, #333, transparent); 
+  margin-bottom: 20px; 
+}
+
+.president-description {
+  font-size: 1rem; 
+  color: #000000; 
+  max-width: 600px; 
+  margin: 0 auto; 
+}
+
+/* Fourth section */
+.flag-gerb-title {
+  background-image: url('images/image9.jpg'); 
+  background-position: center; 
+  text-align: center; 
+  padding: 20px;
+}
+
+.flag-gerb-title h2{
+  text-align: center;
+  font-size: 2rem;
+  color: white;
+}
+
+.flag-emblem-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  background-color: #f5f5f5;
+  justify-content: flex-start;
+}
+
+.images-with-divider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flag-image,
+.emblem-image {
+  max-width: 80%; /* Control the image size to not exceed 80% of container width */
+  height: auto; /* Maintain aspect ratio */
+  margin: 20px 0; /* Adjust spacing around images */
+}
+
+.vertical-divider {
+  display: none; /* Hide the vertical divider on smaller screens */
+}
+
+.info-text {
+  padding: 20px;
+  margin: 20px 0;
+  text-align: center; /* Center text for small screens */
+}
+
+@media (min-width: 600px) {
+  .flag-emblem-section {
+    flex-direction: row; /* Change to horizontal layout on larger screens */
+    justify-content: center;
+  }
+
+  .images-with-divider {
+    flex-direction: row; /* Arrange images side by side on larger screens */
+    justify-content: space-evenly; /* Distribute space evenly around images */
+  }
+
+  .flag-image,
+  .emblem-image {
+    max-width: none; /* Remove the max-width constraint */
+    width: calc(50% - 10px); /* Each image takes up half of the container width minus the divider width */
+    padding-left: 20px;
+  }
+
+  .vertical-divider {
+    display: block; /* Shows vertical divider */
+    width: 2px;
+    height: auto; /* Make divider height flexible to match content */
+    background-color: #333;
+    margin: 0 10px; /* Add some space on the sides of the divider */
+  }
+
+  .horizontal-divider {
+    display: block; /* Shows horizontal divider for larger screens if needed */
+  }
+
+  .info-text {
+    text-align: left; /* Aligns text to left on larger screens */
+    margin: 20px;
+  }
+}
+
+
+/* Fifth section */
+.foundation-contact-section {
+  text-align: center;
+  padding: 40px 0;
+  background-color: #f5f5f5;
+}
+
+.top-horizontal-line {
+  border: 0;
+  height: 1px; /* Height of the horizontal line */
+  background-image: linear-gradient(to right, transparent, #333, transparent);
+  width: 90%;
+  margin: 10px auto;
+}
+
+.foundation-info {
+  display: inline-block;
+  margin-top: -70px;
+}
+
+.foundation-logo {
+  width: 115px; /* Adjust size as needed */
+  height: 115px; /* Adjust size as needed */
+  border-radius: 50%; /* Makes the image round */
+  margin-bottom: 20px;
+}
+
+.foundation-info h2 {
+  font-size: 1.5rem;
+  margin: 20px 0;
+}
+
+.foundation-link {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #000066; /* Dark blue background */
+  color: #ffffff; /* White text */
+  text-decoration: none;
+  border-radius: 20px; /* Rounded corners for the button */
+  transition: background-color 0.3s ease;
+}
+
+.foundation-link:hover {
+  background-color: #0000cc; /* Lighter blue on hover */
+}
+
+/* Sixth section */
+.eyuf-section {
+  display: flex;
+  align-items: center;
+  background: #fff; /* or any color you prefer */
+  padding: 20px;
+}
+
+.eyuf-image {
+  width: 600px; /* Adjust to your preference */
+  height: auto; /* Maintain aspect ratio */
+  margin-right: 20px; /* Adjust space between the image and the text */
+  margin-left: 20px;
+}
+
+.eyuf-content {
+  margin-left: 50px;
+  margin-right: 20px;
+  border-left: 4px solid rgb(0, 0, 0); /* Adjust the color and size as needed */
+  padding-left: 20px; /* Adjust the padding as needed */
+  text-align: left;
+}
+
+.eyuf-content h2 {
+  margin-bottom: 0.5em;
+}
+
+.eyuf-content p {
+  color: #333; /* Adjust the color as needed */
+  font-size: 1rem; /* Adjust the size as needed */
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  .eyuf-section {
+    /* Responsive styles for mobile */
+    flex-direction: column;
+  }
+
+  .eyuf-image {
+    /* Adjust image styling for mobile */
+    width: 80%; /* Slightly less than full width for some padding */
+    margin: 0 auto 20px; /* Center the image and add margin below */
+  }
+
+  .eyuf-content {
+    /* Adjust content styling for mobile */
+    text-align: center;
+    padding: 0 10px; /* Add some padding on the sides */
+  }
+}
+/* Seventh section */
+.content-section {
+  display: flex;
+  align-items: flex-start; /* Aligns items to the top */
+  padding: 20px 20px;
+  background-color: #f5f5f5; /* Adjust the background color as needed */
+}
+
+.text-container {
+  flex: 1; /* Takes up 3/2 of the flex container */
+  padding: 10px;
+  background-color: white; /* A light background for the text container */
+  border-left: 3px solid #b88510; /* Adds a red border line to the left of the text */
+}
+
+.text-container h1 {
+  font-size: 2rem; /* Adjust the font size as needed */
+  color: #333; /* A darker color for the heading */
+  margin-bottom: 1rem; /* Adds some space below the heading */
+}
+
+.text-container p {
+  font-size: 1rem; /* Adjust the font size as needed */
+  color: #666; /* A lighter color for the text */
+  line-height: 1.6; /* Improves readability */
+}
+
+/* footer section */
+.social-media-links {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.social-media-link {
+  margin: 0 10px;
+  color: #000; /* icon color */
+  font-size: 24px; /* icon size */
+}
+
+.social-link:hover {
+  color: #555; /* icon hover color */
+}
+
+/* Eighth section */
+
+.faq-section {
+  background: #fff;
+  padding: 0;
+  padding-bottom: 40px;
+}
+
+.faq-title {
+  text-align: center;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.faq-number {
+  padding: 0;
+  margin: 0;
+  font-size: 250px;
+  color: #b88510;
+  font-weight: bold;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.faq-title h2 {
+  font-size: 24px;
+  background-color: #ffffff;
+  color: #333;
+  display: inline-block;
+  margin-top: 100px;
+  position: relative;
+  top: 60px;
+}
+
+.reasons-container {
+  margin-top: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reason-row {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  width: 95%;
+}
+
+.reason-row.bottom {
+  justify-content: space-around;
+}
+
+.reason {
+  border-left: 4px solid #b88510;
+  border-right: 4px solid #b88510;
+  padding: 0 10px;
+  flex: 1;
+  margin: 10px 50px;
+  text-align: center;
+  max-width: 400px;
+  /* Add additional styling such as padding, borders, etc. */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .reason-row {
+    flex-direction: column;
+  }
+}
+
+.video-section {
+  text-align: center;
+  padding: 20px;
+  background-color: white;
+}
+
+.video-title {
+  margin-bottom: 20px;
+  /* Additional styling for the title */
+}
+
+.video-container {
+  max-width: 560px; /* Same as the width of the iframe */
+  margin: 0 auto; /* This centers the video in the container */
+}
+
+iframe {
+  width: 100%; /* This will make the video responsive */
+  height: 315px; /* You can adjust the height as needed */
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+/* Responsive iframe */
+@media (max-width: 768px) {
+  iframe {
+      height: 210px; /* Adjust height for smaller screens */
+  }
+}
+
+.video-top-horizontal-line {
+  border: 0;
+  height: 1px; /* Height of the horizontal line */
+  background-image: linear-gradient(to right, transparent, #0c0c0c, transparent);
+  width: 90%;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* icons */
+.icon {
+  width: 50px;
+  height: auto;
+  margin-top: 30px;
+}
